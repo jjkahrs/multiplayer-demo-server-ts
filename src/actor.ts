@@ -13,6 +13,10 @@ class Actor {
     speed: number;
     duration: number;
 
+    facingX: number;
+    facingY: number;
+    facingZ: number;
+
     constructor() {
         this.id = "";
         this.posX = 0;
@@ -26,6 +30,10 @@ class Actor {
 
         this.speed = 2;
 
+        this.facingX = 0;
+        this.facingY = 0;
+        this.facingZ = 0;
+
     }
 
     toString() {
@@ -33,10 +41,18 @@ class Actor {
             `posX:`+this.posX.toFixed(3)+','+
             `posY:`+this.posY.toFixed(3)+','+
             `posZ:`+this.posZ.toFixed(3)+','+
+
             `headingX:`+this.headingX.toFixed(3)+','+
             `headingY:`+this.headingY.toFixed(3)+','+
             `headingZ:`+this.headingZ.toFixed(3)+','+
-            `speed:`+this.speed.toFixed(3);
+
+            `speed:`+this.speed.toFixed(3)+','+
+
+            `facingX:`+this.facingX.toFixed(3)+','+
+            `facingY:`+this.facingY.toFixed(3)+','+
+            `facingZ:`+this.facingZ.toFixed(3);
+
+
     }
 }
 

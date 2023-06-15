@@ -11,6 +11,9 @@ class Actor {
         this.headingZ = 0;
         this.duration = 0;
         this.speed = 2;
+        this.facingX = 0;
+        this.facingY = 0;
+        this.facingZ = 0;
     }
     toString() {
         return 'sessionId:' + this.id + ',' +
@@ -20,7 +23,10 @@ class Actor {
             `headingX:` + this.headingX.toFixed(3) + ',' +
             `headingY:` + this.headingY.toFixed(3) + ',' +
             `headingZ:` + this.headingZ.toFixed(3) + ',' +
-            `speed:` + this.speed.toFixed(3);
+            `speed:` + this.speed.toFixed(3) + ',' +
+            `facingX:` + this.facingX.toFixed(3) + ',' +
+            `facingY:` + this.facingY.toFixed(3) + ',' +
+            `facingZ:` + this.facingZ.toFixed(3);
     }
 }
 exports.default = Actor;

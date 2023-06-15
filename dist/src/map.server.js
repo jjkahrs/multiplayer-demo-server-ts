@@ -41,6 +41,11 @@ class MapServer {
     processCommand(command) {
         let timestamp = Date.now() / 1000;
         switch (command.cmd) {
+            case 'RemoveSession':
+                globalThis.allSockets.forEach((s) => {
+                    s.send(command.timestamp + '|RemoveRemoteActor|id:' + command.session.sessionId);
+                });
+                break;
             case 'ReqPlayerState':
                 let playerStateMsg = timestamp + '|PlayerState|' + command.session.actor.toString();
                 command.session.send(playerStateMsg);
@@ -75,6 +80,15 @@ class MapServer {
                             break;
                         case 'duration':
                             command.session.actor.duration = +pair[1];
+                            break;
+                        case 'facingX':
+                            command.session.actor.facingX = +pair[1];
+                            break;
+                        case 'facingY':
+                            command.session.actor.facingY = +pair[1];
+                            break;
+                        case 'facingZ':
+                            command.session.actor.facingZ = +pair[1];
                             break;
                         default:
                             break;

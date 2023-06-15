@@ -40,13 +40,14 @@ class Session {
     }
 
     read( data: string) {
-        console.log('Session.read()', data);
+        //console.log('Session.read()', data);
         this.handleData( data );
     }
 
     cleanup( socket: Socket ) {
         console.log('Session.cleanup()');
         // TO-DO: remove the player from the map and notify other sessions
+        this.queueCommand(Date.now()+'|RemoveSession');
 
         // remove this session from allSockets
         globalThis.allSockets = globalThis.allSockets.filter( (s: Session) => s.socket != socket);
